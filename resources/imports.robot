@@ -9,7 +9,7 @@ Library           RequestsLibrary
 #Library           SSHLibrary
 #Library           CSVLibrary
 Library           JSONLibrary
-Library           REST          ssl_verify=${False}
+Library           REST          ssl_verify=${False}         url=http://a.testaddressbook.com
 Library           ImapLibrary2
 
 Variables    ../resources/config.yaml

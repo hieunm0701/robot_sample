@@ -20,8 +20,7 @@
 
 /Users/hieunguyen/Freelance/robot_cloudcath/testcases/Login.robot
     `pip install webdrivermanager`  
-    `webdrivermanager firefox chrome
-    --linkpath resources/drivers`
+    `webdrivermanager firefox chrome --linkpath resources/drivers`
 
 ## Installing for Window
 1. Install Python
