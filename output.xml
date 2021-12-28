@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.9 on darwin)" generated="20211228 22:13:54.071" rpa="false" schemaversion="2">
+<suite id="s1" name="Testcases" source="/Users/hieunguyen/FSOFT/robot_sample/testcases">
+<suite id="s1-s1" name="Login" source="/Users/hieunguyen/FSOFT/robot_sample/testcases/Login.robot">
+<test id="s1-s1-t1" name="Login successfully">
+<kw name="open browser http://a.testaddressbook.com/sign_in with chrome browser" library="common_keywords" type="SETUP" sourcename="Open browser ${url} with ${browser} browser">
+<doc>supported browsers: phantomjs, chrome, headlesschrome</doc>
+<kw name="Convert To Lower Case" library="String">
+<var>${browser}</var>
+<arg>${browser}</arg>
+<doc>Converts string to lower case.</doc>
+<msg timestamp="20211228 22:13:54.802" level="INFO">${browser} = chrome</msg>
+<status status="PASS" starttime="20211228 22:13:54.802" endtime="20211228 22:13:54.802"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${os}</var>
+<arg>platform.system()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211228 22:13:54.803" level="INFO">${os} = Darwin</msg>
+<status status="PASS" starttime="20211228 22:13:54.802" endtime="20211228 22:13:54.803"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${execute_file}</var>
+<arg>'${browser}'=='chrome'</arg>
+<arg>chromedriver</arg>
+<arg>'${browser}'=='firefox'</arg>
+<arg>geckodriver</arg>
+<doc>Sets variable based on the given condition.</doc>
+<msg timestamp="20211228 22:13:54.803" level="INFO">${execute_file} = chromedriver</msg>
+<status status="PASS" starttime="20211228 22:13:54.803" endtime="20211228 22:13:54.803"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${extension}</var>
+<arg>'${os}'=='Windows'</arg>
+<arg>.exe</arg>
+<arg>${empty}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<msg timestamp="20211228 22:13:54.804" level="INFO">${extension} = </msg>
+<status status="PASS" starttime="20211228 22:13:54.803" endtime="20211228 22:13:54.804"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${executable_path}</arg>
+<arg>/Users/hieunguyen/FSOFT/robot_sample/keywords${/}..${/}resources${/}drivers${/}${execute_file}${extension}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20211228 22:13:54.805" level="INFO">${executable_path} = /Users/hieunguyen/FSOFT/robot_sample/keywords/../resources/drivers/chromedriver</msg>
+<status status="PASS" starttime="20211228 22:13:54.804" endtime="20211228 22:13:54.805"/>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>url=${url}</arg>
+<arg>browser=${browser}</arg>
+<arg>executable_path=/Users/hieunguyen/FSOFT/robot_sample/keywords${/}..${/}resources${/}drivers${/}${execute_file}${extension}</arg>
+<arg>alias=window1</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211228 22:13:54.806" level="INFO">Opening browser 'chrome' to base url 'http://a.testaddressbook.com/sign_in'.</msg>
+<status status="PASS" starttime="20211228 22:13:54.805" endtime="20211228 22:14:00.542"/>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211228 22:14:00.544" endtime="20211228 22:14:00.671"/>
+</kw>
+<status status="PASS" starttime="20211228 22:13:54.801" endtime="20211228 22:14:00.672"/>
+</kw>
+<kw name="Login with" library="LoginPage">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<kw name="Input ${username} into Email textbox" library="LoginPage" sourcename="Input ${username} into Email textbox">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211228 22:14:00.676" level="INFO">Typing text 'a@a.com' into text field 'session_email'.</msg>
+<status status="PASS" starttime="20211228 22:14:00.675" endtime="20211228 22:14:00.874"/>
+</kw>
+<status status="PASS" starttime="20211228 22:14:00.674" endtime="20211228 22:14:00.874"/>
+</kw>
+<kw name="Input ${password} into Password textbox" library="LoginPage" sourcename="Input ${password} into Password textbox">
+<kw name="Input Password" library="Selenium2Library">
+<arg>${input_password}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20211228 22:14:00.876" level="INFO">Typing password into text field 'session_password'.</msg>
+<msg timestamp="20211228 22:14:00.910" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20211228 22:14:00.954" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20211228 22:14:00.875" endtime="20211228 22:14:00.954"/>
+</kw>
+<status status="PASS" starttime="20211228 22:14:00.874" endtime="20211228 22:14:00.954"/>
+</kw>
+<kw name="Click Login button" library="LoginPage">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211228 22:14:00.955" level="INFO">Clicking element '//*[@name='commit']'.</msg>
+<status status="PASS" starttime="20211228 22:14:00.954" endtime="20211228 22:14:03.754"/>
+</kw>
+<status status="PASS" starttime="20211228 22:14:00.954" endtime="20211228 22:14:03.754"/>
+</kw>
+<status status="PASS" starttime="20211228 22:14:00.673" endtime="20211228 22:14:03.754"/>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<arg>Welcome to Address Book</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211228 22:14:03.767" level="INFO">Current page contains text 'Welcome to Address Book'.</msg>
+<status status="PASS" starttime="20211228 22:14:03.755" endtime="20211228 22:14:03.767"/>
+</kw>
+<kw name="Element Text Should Be" library="Selenium2Library">
+<arg>//*[@data-test='current-user']</arg>
+<arg>${username}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20211228 22:14:03.768" level="INFO">Verifying element '//*[@data-test='current-user']' contains exact text 'a@a.com'.</msg>
+<status status="PASS" starttime="20211228 22:14:03.767" endtime="20211228 22:14:03.796"/>
+</kw>
+<kw name="Run Keywords" library="BuiltIn" type="TEARDOWN">
+<arg>close all browsers</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20211228 22:14:03.796" endtime="20211228 22:14:03.886"/>
+</kw>
+<status status="PASS" starttime="20211228 22:14:03.796" endtime="20211228 22:14:03.886"/>
+</kw>
+<doc>1. Login with valid username and password
+2. Verify that login successfully
+- Page displays message "Welcome to Address Book"
+- Profile email should be same as email</doc>
+<tag>Login</tag>
+<status status="PASS" starttime="20211228 22:13:54.800" endtime="20211228 22:14:03.887"/>
+</test>
+<test id="s1-s1-t2" name="Login fail">
+<kw name="open browser http://a.testaddressbook.com/sign_in with chrome browser" library="common_keywords" type="SETUP" sourcename="Open browser ${url} with ${browser} browser">
+<doc>supported browsers: phantomjs, chrome, headlesschrome</doc>
+<kw name="Convert To Lower Case" library="String">
+<var>${browser}</var>
+<arg>${browser}</arg>
+<doc>Converts string to lower case.</doc>
+<msg timestamp="20211228 22:14:03.891" level="INFO">${browser} = chrome</msg>
+<status status="PASS" starttime="20211228 22:14:03.891" endtime="20211228 22:14:03.892"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${os}</var>
+<arg>platform.system()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211228 22:14:03.892" level="INFO">${os} = Darwin</msg>
+<status status="PASS" starttime="20211228 22:14:03.892" endtime="20211228 22:14:03.892"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${execute_file}</var>
+<arg>'${browser}'=='chrome'</arg>
+<arg>chromedriver</arg>
+<arg>'${browser}'=='firefox'</arg>
+<arg>geckodriver</arg>
+<doc>Sets variable based on the given condition.</doc>
+<msg timestamp="20211228 22:14:03.893" level="INFO">${execute_file} = chromedriver</msg>
+<status status="PASS" starttime="20211228 22:14:03.892" endtime="20211228 22:14:03.893"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${extension}</var>
+<arg>'${os}'=='Windows'</arg>
+<arg>.exe</arg>
+<arg>${empty}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<msg timestamp="20211228 22:14:03.894" level="INFO">${extension} = </msg>
+<status status="PASS" starttime="20211228 22:14:03.893" endtime="20211228 22:14:03.894"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${executable_path}</arg>
+<arg>/Users/hieunguyen/FSOFT/robot_sample/keywords${/}..${/}resources${/}drivers${/}${execute_file}${extension}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20211228 22:14:03.896" level="INFO">${executable_path} = /Users/hieunguyen/FSOFT/robot_sample/keywords/../resources/drivers/chromedriver</msg>
+<status status="PASS" starttime="20211228 22:14:03.895" endtime="20211228 22:14:03.896"/>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>url=${url}</arg>
+<arg>browser=${browser}</arg>
+<arg>executable_path=/Users/hieunguyen/FSOFT/robot_sample/keywords${/}..${/}resources${/}drivers${/}${execute_file}${extension}</arg>
+<arg>alias=window1</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211228 22:14:03.898" level="INFO">Opening browser 'chrome' to base url 'http://a.testaddressbook.com/sign_in'.</msg>
+<status status="PASS" starttime="20211228 22:14:03.897" endtime="20211228 22:14:07.688"/>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211228 22:14:07.689" endtime="20211228 22:14:07.820"/>
+</kw>
+<status status="PASS" starttime="20211228 22:14:03.890" endtime="20211228 22:14:07.820"/>
+</kw>
+<kw name="Login with" library="LoginPage">
+<arg>${username}</arg>
+<arg>${invalid_password}</arg>
+<kw name="Input ${username} into Email textbox" library="LoginPage" sourcename="Input ${username} into Email textbox">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211228 22:14:07.822" level="INFO">Typing text 'a@a.com' into text field 'session_email'.</msg>
+<status status="PASS" starttime="20211228 22:14:07.821" endtime="20211228 22:14:07.998"/>
+</kw>
+<status status="PASS" starttime="20211228 22:14:07.821" endtime="20211228 22:14:07.998"/>
+</kw>
+<kw name="Input ${password} into Password textbox" library="LoginPage" sourcename="Input ${password} into Password textbox">
+<kw name="Input Password" library="Selenium2Library">
+<arg>${input_password}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20211228 22:14:07.999" level="INFO">Typing password into text field 'session_password'.</msg>
+<msg timestamp="20211228 22:14:08.031" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20211228 22:14:08.065" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20211228 22:14:07.999" endtime="20211228 22:14:08.065"/>
+</kw>
+<status status="PASS" starttime="20211228 22:14:07.999" endtime="20211228 22:14:08.065"/>
+</kw>
+<kw name="Click Login button" library="LoginPage">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211228 22:14:08.066" level="INFO">Clicking element '//*[@name='commit']'.</msg>
+<status status="PASS" starttime="20211228 22:14:08.065" endtime="20211228 22:14:08.573"/>
+</kw>
+<status status="PASS" starttime="20211228 22:14:08.065" endtime="20211228 22:14:08.574"/>
+</kw>
+<status status="PASS" starttime="20211228 22:14:07.820" endtime="20211228 22:14:08.574"/>
+</kw>
+<kw name="Page Should Not Contain" library="Selenium2Library">
+<arg>Welcome to Address Book</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211228 22:14:08.598" level="INFO">Current page does not contain text 'Welcome to Address Book'.</msg>
+<status status="PASS" starttime="20211228 22:14:08.574" endtime="20211228 22:14:08.598"/>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<arg>Bad email or password.</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211228 22:14:08.609" level="INFO">Current page contains text 'Bad email or password.'.</msg>
+<status status="PASS" starttime="20211228 22:14:08.598" endtime="20211228 22:14:08.609"/>
+</kw>
+<kw name="Run Keywords" library="BuiltIn" type="TEARDOWN">
+<arg>close all browsers</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20211228 22:14:08.609" endtime="20211228 22:14:08.693"/>
+</kw>
+<status status="PASS" starttime="20211228 22:14:08.609" endtime="20211228 22:14:08.693"/>
+</kw>
+<doc>1. Login with valid username and password
+2. Verify that login successfully
+- Page displays message "Welcome to Address Book"
+- Profile email should be same as email</doc>
+<tag>Login</tag>
+<status status="PASS" starttime="20211228 22:14:03.888" endtime="20211228 22:14:08.693"/>
+</test>
+<status status="PASS" starttime="20211228 22:13:54.105" endtime="20211228 22:14:08.695"/>
+</suite>
+<status status="PASS" starttime="20211228 22:13:54.074" endtime="20211228 22:14:08.698"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">Login</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Testcases">Testcases</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Login">Testcases.Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
