@@ -1,9 +1,9 @@
 *** Settings ***
 Resource    ..${/}resources${/}imports.robot
 Resource    ..${/}object${/}LoginPage.robot
-#Test Setup    open browser ${url} with ${browser} browser
-#Test Teardown    Run Keywords
-#          ...    close all browsers
+Test Setup    open browser ${url} with ${browser} browser
+Test Teardown    Run Keywords
+          ...    close all browsers
 
 *** Test Cases ***
 Login successfully

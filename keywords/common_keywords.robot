@@ -17,3 +17,13 @@ Open browser ${url} with ${browser} browser
 Start new browser session
     Delete all cookies
     Reload page
+
+Set Up And Open Android Application
+    ${port}=        set variable        4723
+    ${URL}=         set variable             http://localhost:${port}/wd/hub
+    Open Application    ${URL}
+    ...     platformName=Android
+    ...     deviceName=Test
+    ...     appPackage=com.google.android.calculator
+    ...     appActivity=com.android.calculator2.Calculator
+    ...     automationName=UIAutomator2
